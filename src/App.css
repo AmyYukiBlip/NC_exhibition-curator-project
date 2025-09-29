@@ -39,34 +39,6 @@
   padding: 2em;
 }
 
-/* Flex set up for all pages */
-
-.main-content {
-  display: flex;
-  flex: 1;
-  background-color: #c0c0c0;
-}
-
-.left-pane {
-  width: 300px;
-  margin: 2rem;
-  background-color: #ffffff;
-}
-
-.right-pane {
-  flex: 1;
-  padding: 1rem;
-  margin: 2rem;
-  background-color: #ffffff;
-}
-
-footer {
-  background-color: #eee;
-  padding: 2rem;
-  text-align: center;
-  color: #888;
-}
-
 /* Nav bar */
 
 .nav-container {
@@ -107,30 +79,59 @@ footer {
   color: #fefdff;
 }
 
+/* Flex set up home layout */
+
+.main-content {
+  display: flex;
+  flex: 1;
+  background-color: #c0c0c0;
+}
+
+.left-pane {
+  width: 300px;
+  margin: 2rem;
+  padding: 16px;
+  background-color: #ffffff;
+}
+
+.right-pane {
+  flex: 1;
+  padding: 3rem;
+  margin: 2rem;
+  background-color: #ffffff;
+}
+
+footer {
+  background-color: #eee;
+  padding: 2rem;
+  text-align: center;
+  color: #888;
+}
+
 /* Gallery */
 
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
   justify-content: center;
-  padding: 10px;
 }
 
-/* Individual artwork card */
+/* Individual artwork card within main gallery */
 
 .gallery {
   display: inline-block;
   border: 2px solid hsl(0, 0%, 60%);
   border-radius: 8px;
   margin: 5px;
+  padding: 10px;
   width: 200px;
   text-align: center;
   background-color: #fff;
   transition: border 0.3s ease;
 }
 
-.description {
+.g-description {
   padding: 10px;
 }
 .gallery:hover {
@@ -147,4 +148,37 @@ footer {
 
 .g-link {
   font-size: 0.8rem;
+}
+
+/* Individual artwork card within temp collection */
+
+.t-gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.t-gallery {
+  display: inline-block;
+  border: 2px solid hsl(0, 0%, 60%);
+  border-radius: 8px;
+  width: 100px;
+  margin: 5px;
+  padding: 5px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.t-gallery img {
+  width: 100%;
+  height: auto;
+}
+
+.t-gallery-buttons button {
+  font-size: 0.8rem;
+  padding: 10px;
+  align-content: center;
+  min-width: 32px;
+  height: 32px;
 }

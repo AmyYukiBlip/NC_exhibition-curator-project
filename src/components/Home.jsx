@@ -11,12 +11,12 @@ import {
   Button,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import AllTempArtwork from "./AllTempArtwork";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [medium, setMedium] = useState("");
-  const [tempCollection, setTempCollection] = useState([]);
 
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
@@ -26,26 +26,13 @@ export default function Home() {
     setMedium(event.target.value);
   };
 
-  const handleCollectionChange = (event) => {
-    setTempCollection((prev) => [...prev, artwork]);
-  };
 
   return (
     <div className="main-content">
-      
       {/* ____LEFT PANE - TEMP COLLECTION____ */}
       <div className="left-pane">
         <h2>My Temp Collection</h2>
-        {tempCollection.length === 0 ? (
-          <p>Please add art to start your collection</p>
-        ) : (
-          tempCollection.map((art) => (
-            <div key={art.id}>
-              <p>art.title</p>
-              <p>art.artist</p>
-            </div>
-          ))
-        )}
+          <AllTempArtwork/>
       </div>
 
       {/* ____RIGHT PANE - MAIN CONTENT____ */}
