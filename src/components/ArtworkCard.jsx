@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+// ** This is each artwork displayed in the main gallery **
+
 export default function ArtworkCard({ artwork }) {
   return (
     <div className="gallery">

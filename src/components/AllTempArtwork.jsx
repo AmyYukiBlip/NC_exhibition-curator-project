@@ -4,7 +4,7 @@ import TempCollectionCard from "./TempCollectionCard";
 import { Button } from "@mui/material";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
-//  ** This component is what is rendering within the homepage temp collection component **
+//  ** This component is rendering within the homepage temp collection component **
 
 export default function AllTempArtwork() {
   const [tempCollection, setTempCollection] = useState([]);
