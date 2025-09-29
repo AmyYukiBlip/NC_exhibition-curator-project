@@ -39,9 +39,42 @@
   padding: 2em;
 }
 
-.small-print {
+
+
+/* Flex set up for all pages */
+/* .page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+ } */
+
+.main-content {
+  display: flex;
+  flex: 1;
+  background-color: #C0C0C0
+}
+
+.left-pane {
+  width: 300px;
+  margin: 2rem;
+  background-color: #ffffff ;
+}
+
+.right-pane {
+  flex: 1;
+  padding: 1rem;
+  margin: 2rem;
+  background-color: #ffffff;
+}
+
+footer {
+  background-color: #eee;
+  padding: 2rem;
+  text-align: center;
   color: #888;
 }
+
+
 
 /* Nav bar */
 

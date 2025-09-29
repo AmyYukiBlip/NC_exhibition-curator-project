@@ -16,6 +16,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [medium, setMedium] = useState("");
+  const [tempCollection, setTempCollection] = useState([]);
 
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
@@ -25,100 +26,121 @@ export default function Home() {
     setMedium(event.target.value);
   };
 
+  const handleCollectionChange = (event) => {
+    setTempCollection((prev) => [...prev, artwork]);
+  };
+
   return (
-    <div>
-      <h1>Welcome to The Gallery</h1>
-      <p>
-        Search and browse the collection below, filter your results, and add to
-        your temporary collection!
-      </p>
-
-      {/* ** SEARCH BAR ** */}
-      <Box
-        sx={{
-          display: "flex",
-          gap: 1,
-          flexWrap: "wrap",
-          marginTop: 5,
-          marginBottom: 3,
-          width: "100%",
-          maxWidth: "800px",
-          marginX: "auto", // centers the box horizontally
-        }}
-      >
-        <TextField
-          label="Search by artist or title..."
-          variant="outlined"
-          fullWidth
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon sx={{ color: "grey.600" }} />
-              </InputAdornment>
-            ),
-          }}
-        />
-        {/* Location Filter */}
-        <FormControl sx={{ flex: 1, minWidth: 200 }}>
-          <InputLabel id="location-select-label">Filter by Museum</InputLabel>
-          <Select
-            labelId="location-select-label"
-            id="location-select"
-            value={location}
-            label="Filter by Museum"
-            onChange={handleLocationChange}
-          >
-            <MenuItem value="">All Museums</MenuItem>
-            <MenuItem value="The Met">The Met</MenuItem>
-            <MenuItem value="The Art Institute of Chicago">
-              The Art Institute of Chicago
-            </MenuItem>
-          </Select>
-        </FormControl>
-
-        {/* Medium Filter */}
-        <FormControl sx={{ flex: 1, minWidth: 200 }}>
-          <InputLabel id="medium-select-label">Filter by Medium</InputLabel>
-          <Select
-            labelId="medium-select-label"
-            id="medium-select"
-            value={medium}
-            label="Filter by Medium"
-            onChange={handleMediumChange}
-          >
-            <MenuItem value="">All Types</MenuItem>
-            <MenuItem value="Oil on canvas">Oil on canvas</MenuItem>
-            <MenuItem value="Woodblock print">Woodblock print</MenuItem>
-          </Select>
-        </FormControl>
-
-        {/* Clear filters button */}
-        <Button
-          variant="contained"
-          color="primary"
-          size="small"
-          onClick={() => {
-            setLocation("");
-            setMedium("");
-            setSearchTerm("");
-          }}
-          sx={{ alignSelf: "center", whiteSpace: "nowrap" }}
-        >
-          Clear
-        </Button>
-      </Box>
-      {/* ** The Gallery ** */}
-
-      <div>
-        <AllArtwork
-          searchTerm={searchTerm}
-          location={location}
-          medium={medium}
-        />
+    <div className="main-content">
+      
+      {/* ____LEFT PANE - TEMP COLLECTION____ */}
+      <div className="left-pane">
+        <h2>My Temp Collection</h2>
+        {tempCollection.length === 0 ? (
+          <p>Please add art to start your collection</p>
+        ) : (
+          tempCollection.map((art) => (
+            <div key={art.id}>
+              <p>art.title</p>
+              <p>art.artist</p>
+            </div>
+          ))
+        )}
       </div>
-      <p className="small-print">© Created by AmyYukiBlip</p>
+
+      {/* ____RIGHT PANE - MAIN CONTENT____ */}
+      <main className="right-pane">
+        <h1>Welcome to The Gallery</h1>
+        <p>
+          Search and browse the collection below, filter your results, and add
+          to your temporary collection!
+        </p>
+        {/* ** SEARCH BAR ** */}
+        <Box
+          sx={{
+            display: "flex",
+            gap: 1,
+            flexWrap: "wrap",
+            marginTop: 5,
+            marginBottom: 3,
+            width: "100%",
+            maxWidth: "800px",
+            marginX: "auto", // centers the box horizontally
+          }}
+        >
+          <TextField
+            label="Search by artist or title..."
+            variant="outlined"
+            fullWidth
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon sx={{ color: "grey.600" }} />
+                </InputAdornment>
+              ),
+            }}
+          />
+          {/* Location Filter */}
+          <FormControl sx={{ flex: 1, minWidth: 200 }}>
+            <InputLabel id="location-select-label">Filter by Museum</InputLabel>
+            <Select
+              labelId="location-select-label"
+              id="location-select"
+              value={location}
+              label="Filter by Museum"
+              onChange={handleLocationChange}
+            >
+              <MenuItem value="">All Museums</MenuItem>
+              <MenuItem value="The Met">The Met</MenuItem>
+              <MenuItem value="The Art Institute of Chicago">
+                The Art Institute of Chicago
+              </MenuItem>
+            </Select>
+          </FormControl>
+
+          {/* Medium Filter */}
+          <FormControl sx={{ flex: 1, minWidth: 200 }}>
+            <InputLabel id="medium-select-label">Filter by Medium</InputLabel>
+            <Select
+              labelId="medium-select-label"
+              id="medium-select"
+              value={medium}
+              label="Filter by Medium"
+              onChange={handleMediumChange}
+            >
+              <MenuItem value="">All Types</MenuItem>
+              <MenuItem value="Oil on canvas">Oil on canvas</MenuItem>
+              <MenuItem value="Woodblock print">Woodblock print</MenuItem>
+            </Select>
+          </FormControl>
+
+          {/* Clear filters button */}
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            onClick={() => {
+              setLocation("");
+              setMedium("");
+              setSearchTerm("");
+            }}
+            sx={{ alignSelf: "center", whiteSpace: "nowrap" }}
+          >
+            Clear
+          </Button>
+        </Box>
+
+        {/* ** The Gallery ** */}
+        <div>
+          <AllArtwork
+            searchTerm={searchTerm}
+            location={location}
+            medium={medium}
+          />
+        </div>
+      </main>
     </div>
   );
 }
