@@ -39,25 +39,18 @@
   padding: 2em;
 }
 
-
-
 /* Flex set up for all pages */
-/* .page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
- } */
 
 .main-content {
   display: flex;
   flex: 1;
-  background-color: #C0C0C0
+  background-color: #c0c0c0;
 }
 
 .left-pane {
   width: 300px;
   margin: 2rem;
-  background-color: #ffffff ;
+  background-color: #ffffff;
 }
 
 .right-pane {
@@ -73,8 +66,6 @@ footer {
   text-align: center;
   color: #888;
 }
-
-
 
 /* Nav bar */
 
@@ -93,7 +84,7 @@ footer {
   margin-right: 1rem;
 }
 
-.orgname{
+.orgname {
   color: #fefdff;
   margin-right: 1rem;
   font-size: 2rem;
@@ -101,7 +92,7 @@ footer {
 
 .nav-link-right {
   display: inline-block;
-  min-width: 100px; 
+  min-width: 100px;
   /* background-color: #ff7b00c4; */
   color: #fefdff;
   border-radius: 5px;
@@ -121,8 +112,8 @@ footer {
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; 
-  justify-content: center; 
+  gap: 15px;
+  justify-content: center;
   padding: 10px;
 }
 
@@ -139,19 +130,19 @@ footer {
   transition: border 0.3s ease;
 }
 
-.description{
+.description {
   padding: 10px;
 }
-.gallery:hover{
+.gallery:hover {
   border: 2px solid #ff7b00c7;
 }
-.gallery img{
+.gallery img {
   width: 100%;
   height: auto;
 }
 
-.g-desc-smaller{
-font-size: 0.8rem;
+.g-desc-smaller {
+  font-size: 0.8rem;
 }
 
 .g-link {

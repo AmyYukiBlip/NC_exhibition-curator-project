@@ -3,14 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <Navbar 
-      // className="page"
-      />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
@@ -20,5 +18,3 @@ function App() {
 }
 
 export default App;
-
-
