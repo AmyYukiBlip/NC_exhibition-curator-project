@@ -17,6 +17,9 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [medium, setMedium] = useState("");
+  const [tempCollection, setTempCollection] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
@@ -26,12 +29,19 @@ export default function Home() {
     setMedium(event.target.value);
   };
 
+  const handleTempCollection = (art) => {
+    setTempCollection((prev) => [...prev, art]);
+    setLoading(true);
+  };
+
+
+
   return (
     <div className="main-content">
       {/* ____LEFT PANE - TEMP COLLECTION____ */}
       <div className="left-pane">
         <h2>My Temp Collection</h2>
-        <AllTempArtwork />
+        <AllTempArtwork tempCollection={tempCollection} />
       </div>
 
       {/* ____RIGHT PANE - MAIN CONTENT____ */}
@@ -124,6 +134,7 @@ export default function Home() {
             searchTerm={searchTerm}
             location={location}
             medium={medium}
+            handleTempCollection={handleTempCollection}
           />
         </div>
       </main>
