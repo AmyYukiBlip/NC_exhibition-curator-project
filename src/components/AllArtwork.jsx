@@ -6,7 +6,7 @@ import ArtInfoModal from "../modal/ArtInfoModal"
 
 //  ** This component is what is rendering as the homepage gallery component **
 
-export default function AllArtwork({ searchTerm, location, medium, artwork, handleTempCollection }) {
+export default function AllArtwork({ searchTerm, location, medium, handleTempCollection }) {
   const [selectedArtwork, setSelectedArtwork] = useState(null);
 
   const handleViewDetails = (art) => {
