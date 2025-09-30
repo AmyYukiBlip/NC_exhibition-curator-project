@@ -32,7 +32,10 @@ export default function Home() {
     setTempCollection((prev) => [...prev, art]);
     setLoading(true);
   };
-  
+
+  const handleRemoveFromCollection = (artId) => {
+    setTempCollection((prev) => prev.filter((art) => art.id !== artId));
+  };
 
   return (
     <div className="main-content">
@@ -42,6 +45,7 @@ export default function Home() {
         <AllTempArtwork
           tempCollection={tempCollection}
           handleTempCollection={handleTempCollection}
+          handleRemoveFromCollection={handleRemoveFromCollection}
         />
       </div>
 

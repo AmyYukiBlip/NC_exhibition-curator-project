@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function AllTempArtwork({
   tempCollection,
   handleTempCollection,
+  handleRemoveFromCollection 
 }) {
 
   const [selectedArtwork, setSelectedArtwork] = useState(null);
@@ -27,6 +28,7 @@ export default function AllTempArtwork({
               key={art.id}
               artwork={art}
               onViewDetails={setSelectedArtwork}
+              onRemove={() => handleRemoveFromCollection(art.id)} 
             />
           ))}
           <Button variant="contained" endIcon={<DoubleArrowIcon />}>
