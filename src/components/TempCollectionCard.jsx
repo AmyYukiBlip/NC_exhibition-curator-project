@@ -4,7 +4,12 @@ import Stack from "@mui/material/Stack";
 
 // ** This is each artwork displayed in the temp collection gallery **
 
-export default function TempCollectionCard({ artwork, onViewDetails, onRemove }) {
+export default function TempCollectionCard({
+  artwork,
+  onViewDetails,
+  onRemove,
+  setSnackOpen,
+}) {
   return (
     <div className="t-gallery">
       <img src={artwork.image} />
@@ -18,7 +23,14 @@ export default function TempCollectionCard({ artwork, onViewDetails, onRemove })
             INFO
           </Button>
 
-          <Button variant="contained" color="error" onClick={onRemove}>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => {
+              onRemove();
+              setSnackOpen(true);
+            }}
+          >
             <DeleteIcon />
           </Button>
         </Stack>

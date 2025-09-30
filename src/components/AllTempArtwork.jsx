@@ -1,5 +1,5 @@
 import TempCollectionCard from "./TempCollectionCard";
-import { Button } from "@mui/material";
+import { Button, Snackbar } from "@mui/material";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import ArtInfoModal from "../modal/ArtInfoModal";
 import { useState } from "react";
@@ -9,10 +9,10 @@ import { useState } from "react";
 export default function AllTempArtwork({
   tempCollection,
   handleTempCollection,
-  handleRemoveFromCollection 
+  handleRemoveFromCollection,
 }) {
-
   const [selectedArtwork, setSelectedArtwork] = useState(null);
+  const [snackOpen, setSnackOpen] = useState(false);
 
   return (
     <div className="t-gallery-container">
@@ -28,7 +28,8 @@ export default function AllTempArtwork({
               key={art.id}
               artwork={art}
               onViewDetails={setSelectedArtwork}
-              onRemove={() => handleRemoveFromCollection(art.id)} 
+              onRemove={() => handleRemoveFromCollection(art.id)}
+              setSnackOpen={setSnackOpen}
             />
           ))}
           <Button variant="contained" endIcon={<DoubleArrowIcon />}>
@@ -43,6 +44,13 @@ export default function AllTempArtwork({
           handleTempCollection={handleTempCollection}
         />
       )}
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={3000}
+        onClose={() => setSnackOpen(false)}
+        message={`Removed from collection`}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      />
     </div>
   );
 }
