@@ -1,10 +1,18 @@
 // import { ncNewsApi } from "../api";
+import { useState } from "react";
 import { artworks } from "../data/test_artworks";
 import ArtworkCard from "./ArtworkCard";
+import ArtInfoModal from "../modal/ArtInfoModal"
 
 //  ** This component is what is rendering as the homepage gallery component **
 
-export default function AllArtwork({ searchTerm, location, medium }) {
+export default function AllArtwork({ searchTerm, location, medium, artwork }) {
+  const [selectedArtwork, setSelectedArtwork] = useState(null);
+
+  const handleViewDetails = (art) => {
+    setSelectedArtwork(art);
+  };
+
   const filteredArtworks = artworks.filter((art) => {
     const matchesSearch =
       art.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -20,8 +28,19 @@ export default function AllArtwork({ searchTerm, location, medium }) {
   return (
     <div className="gallery-container">
       {filteredArtworks.map((art) => (
-        <ArtworkCard key={art.id} artwork={art} />
+        <ArtworkCard
+          key={art.id}
+          artwork={art}
+          onViewDetails={handleViewDetails}
+        />
       ))}
+
+      {selectedArtwork && (
+        <ArtInfoModal
+          artwork={selectedArtwork}
+          onClose={() => setSelectedArtwork(null)}
+        />
+      )}
     </div>
   );
 }

@@ -182,3 +182,14 @@ footer {
   min-width: 32px;
   height: 32px;
 }
+
+
+/* ArtInfoModal Styling */
+
+.artinfo-img {
+  width: 100%;
+}
+
+.artinfo-desc, .artinfo-title {
+ padding-bottom: 25px;
+}

@@ -26,13 +26,12 @@ export default function Home() {
     setMedium(event.target.value);
   };
 
-
   return (
     <div className="main-content">
       {/* ____LEFT PANE - TEMP COLLECTION____ */}
       <div className="left-pane">
         <h2>My Temp Collection</h2>
-          <AllTempArtwork/>
+        <AllTempArtwork />
       </div>
 
       {/* ____RIGHT PANE - MAIN CONTENT____ */}
