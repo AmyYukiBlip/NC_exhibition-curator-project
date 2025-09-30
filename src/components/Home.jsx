@@ -13,11 +13,10 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import AllTempArtwork from "./AllTempArtwork";
 
-export default function Home() {
+export default function Home({ tempCollection, setTempCollection }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [medium, setMedium] = useState("");
-  const [tempCollection, setTempCollection] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const handleLocationChange = (event) => {

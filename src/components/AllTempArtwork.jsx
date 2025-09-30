@@ -3,8 +3,10 @@ import { Button, Snackbar } from "@mui/material";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import ArtInfoModal from "../modal/ArtInfoModal";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-//  ** This component is rendering within the homepage as the temp collection component **
+//  ** This component is rendering within the homepage as the temp collection component/gallery,
+//     mapping over TempCollectionCards **
 
 export default function AllTempArtwork({
   tempCollection,
@@ -13,6 +15,7 @@ export default function AllTempArtwork({
 }) {
   const [selectedArtwork, setSelectedArtwork] = useState(null);
   const [snackOpen, setSnackOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="t-gallery-container">
@@ -32,7 +35,11 @@ export default function AllTempArtwork({
               setSnackOpen={setSnackOpen}
             />
           ))}
-          <Button variant="contained" endIcon={<DoubleArrowIcon />}>
+          <Button
+            variant="contained"
+            endIcon={<DoubleArrowIcon />}
+            onClick={() => navigate("/exhibition")}
+          >
             Create Exhibition
           </Button>
         </>

@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Stack from "@mui/material/Stack";
 
-// ** This is each artwork displayed in the temp collection gallery **
+// ** This is each artwork card displayed in the temp collection gallery **
 
 export default function TempCollectionCard({
   artwork,
@@ -22,7 +22,6 @@ export default function TempCollectionCard({
           <Button variant="contained" onClick={() => onViewDetails(artwork)}>
             INFO
           </Button>
-
           <Button
             variant="contained"
             color="error"

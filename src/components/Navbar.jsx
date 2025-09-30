@@ -16,11 +16,11 @@ export default function Navbar() {
         </Link>
       </li>
 
-      <li>
+      {/* <li>
         <Link to="/login" className="nav-link-right">
           Login
         </Link>
-      </li>
+      </li> */}
     </ul>
   );
 }
