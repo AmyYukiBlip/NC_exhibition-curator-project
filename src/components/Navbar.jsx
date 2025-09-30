@@ -1,12 +1,14 @@
-import { useContext, React } from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
-import eclogo from "../assets/eclogo.png";
+import EC_Logo_transparent from "../assets/EC_Logo_transparent.png"
 
 export default function Navbar() {
   return (
     <ul className="nav-container">
       <li className="nav-left-group">
-        <img src={eclogo} className="logo react" alt="EC Logo" />
+        <Link to="/" className="nav-link-right">
+          <img src={EC_Logo_transparent} className="logo app" alt="EC Logo" />
+        </Link>
       </li>
       <li className="orgname">Exhibition Curator</li>
 
