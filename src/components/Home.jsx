@@ -20,7 +20,6 @@ export default function Home() {
   const [tempCollection, setTempCollection] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
   };
@@ -33,15 +32,17 @@ export default function Home() {
     setTempCollection((prev) => [...prev, art]);
     setLoading(true);
   };
-
-
+  
 
   return (
     <div className="main-content">
       {/* ____LEFT PANE - TEMP COLLECTION____ */}
       <div className="left-pane">
         <h2>My Temp Collection</h2>
-        <AllTempArtwork tempCollection={tempCollection} />
+        <AllTempArtwork
+          tempCollection={tempCollection}
+          handleTempCollection={handleTempCollection}
+        />
       </div>
 
       {/* ____RIGHT PANE - MAIN CONTENT____ */}

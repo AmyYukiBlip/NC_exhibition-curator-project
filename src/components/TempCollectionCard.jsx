@@ -4,9 +4,9 @@ import Stack from "@mui/material/Stack";
 
 // ** This is each artwork displayed in the temp collection gallery **
 
-// TODO:  more info and remove buttons need to be linked up 
+// TODO:  more info and remove buttons need to be linked up
 
-export default function TempCollectionCard({ artwork }) {
+export default function TempCollectionCard({ artwork, onViewDetails }) {
   return (
     <div className="t-gallery">
       <img src={artwork.image} />
@@ -16,7 +16,10 @@ export default function TempCollectionCard({ artwork }) {
       </div>
       <div className="t-gallery-buttons">
         <Stack direction="row" spacing={1}>
-          <Button variant="contained">Info</Button>
+          <Button variant="contained" onClick={() => onViewDetails(artwork)}>
+            INFO
+          </Button>
+
           <Button variant="contained" color="error">
             {" "}
             <DeleteIcon />
