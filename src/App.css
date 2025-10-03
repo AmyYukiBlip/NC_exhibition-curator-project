@@ -1,72 +1,27 @@
 /* Styles specific to the <App /> component! */
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 9em;
-  padding: 0.3em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.app:hover {
-  filter: drop-shadow(0 0 2em #f16d30aa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
 /* Nav bar */
 
 .nav-container {
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
   list-style-type: none;
   background-color: #0f110c;
-  margin: 0px;
   padding: 0px 40px 0px 0px;
 }
 
-.nav-item-left {
-  color: #fefdff;
-  margin-right: 1rem;
+.logo {
+  height: 8em;
+  padding: 0.3em;
 }
 
-.orgname {
-  color: #fefdff;
-  margin-right: 1rem;
-  font-size: 2rem;
-}
-
-.nav-link-right {
+.nav-link{
   display: inline-block;
-  min-width: 100px;
-  /* background-color: #ff7b00c4; */
   color: #fefdff;
+  margin: 0.5rem;
+  min-width: 100px;
   border-radius: 5px;
   padding: 8px;
   cursor: pointer;
@@ -74,58 +29,58 @@
   transition: background-color 0.3s ease;
 }
 
-.nav-link-right:hover {
-  background-color: #ff7b00c7;
+.nav-link:hover {
+  background-color: #008cffc7;
   color: #fefdff;
 }
 
-/* Flex set up home layout */
+.orgname {
+  color: #fefdff;
+  margin-right: 1rem;
+  font-size: 3rem;
+}
+
+/* Home Page */
 
 .main-content {
   display: flex;
-  flex: 1;
+  flex-wrap: wrap;
+  gap: 2rem;
   background-color: #c0c0c0;
+  text-align: center;
+  padding: 2rem;
+  margin: 0px;
 }
 
 .left-pane {
   width: 300px;
-  margin: 2rem;
-  padding: 16px;
+  padding: 25px;
   background-color: #ffffff;
 }
 
 .right-pane {
   flex: 1;
-  padding: 3rem;
-  margin: 2rem;
+  padding: 25px 60px;
   background-color: #ffffff;
 }
 
-footer {
-  background-color: #eee;
-  padding: 2rem;
-  text-align: center;
-  color: #888;
-}
-
-/* Gallery */
+/* Gallery component (rendering in home)*/
 
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
 }
 
-/* Individual artwork card within main gallery */
+/* Individual artwork card within main gallery & exhibition */
 
 .gallery {
   display: inline-block;
   border: 2px solid hsl(0, 0%, 60%);
   border-radius: 8px;
-  margin: 5px;
-  padding: 10px;
+  padding: 5px;
   width: 200px;
+  margin: 10px;
   text-align: center;
   background-color: #fff;
   transition: border 0.3s ease;
@@ -150,12 +105,12 @@ footer {
   font-size: 0.8rem;
 }
 
-/* Individual artwork card within temp collection */
+/* Individual artwork card within temporary collection */
 
 .t-gallery-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 15px;
   justify-content: center;
 }
 
@@ -164,7 +119,6 @@ footer {
   border: 2px solid hsl(0, 0%, 60%);
   border-radius: 8px;
   width: 100px;
-  margin: 5px;
   padding: 5px;
   font-size: 0.8rem;
   text-align: center;
@@ -183,13 +137,32 @@ footer {
   height: 32px;
 }
 
-
 /* ArtInfoModal Styling */
 
 .artinfo-img {
   width: 100%;
 }
 
-.artinfo-desc, .artinfo-title {
- padding-bottom: 25px;
+.artinfo-desc,
+.artinfo-title {
+  padding-bottom: 25px;
+}
+
+/* Exhibition Page */
+
+.page-container {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
+footer {
+  flex-shrink: 0;
+  background-color: #eee;
+  padding: 2rem;
+  text-align: center;
+  color: #888;
 }

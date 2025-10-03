@@ -1,12 +1,9 @@
-import { useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
-import { Snackbar } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -20,11 +17,7 @@ const style = {
   p: 4,
 };
 
-export default function ExhibitionArtInfoModal({
-  artwork,
-  onClose,
-}) {
-
+export default function ExhibitionArtInfoModal({ artwork, onClose }) {
   return (
     <div>
       <Modal
@@ -65,18 +58,16 @@ export default function ExhibitionArtInfoModal({
 
             <Button
               variant="contained"
-            //   endIcon={<DoubleArrowIcon />}
-            //   onClick={() => {
-            //     handleTempCollection(artwork);
-            //   }}
+              //   endIcon={<DoubleArrowIcon />}
+              //   onClick={() => {
+              //     handleTempCollection(artwork);
+              //   }}
             >
               View More At The Museum Online
             </Button>
           </Box>
         </Fade>
       </Modal>
-
-
     </div>
   );
 }
