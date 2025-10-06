@@ -14,11 +14,21 @@ import SearchIcon from "@mui/icons-material/Search";
 import AllTempArtwork from "./AllTempArtwork";
 
 export default function Home({ tempCollection, setTempCollection }) {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("Vincent van Gogh"); // drives AllArtwork
+  const [inputValue, setInputValue] = useState(" Vincent van Gogh"); // what user types
   const [location, setLocation] = useState("");
   const [medium, setMedium] = useState("");
   const [loading, setLoading] = useState(true);
 
+  // handlers
+  const handleSearch = () => {
+    setSearchTerm(inputValue);
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
   };
@@ -52,7 +62,7 @@ export default function Home({ tempCollection, setTempCollection }) {
       <main className="right-pane">
         <h1>Welcome to The Gallery</h1>
         <p>
-          Search and browse the collection below, filter your results, and add
+          Search for an artist or artwork below, filter your results, and add
           to your temporary collection!
         </p>
         {/* ** SEARCH BAR ** */}
@@ -72,16 +82,29 @@ export default function Home({ tempCollection, setTempCollection }) {
             label="Search by artist or title..."
             variant="outlined"
             fullWidth
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
                   <SearchIcon sx={{ color: "grey.600" }} />
                 </InputAdornment>
               ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Button
+                    onClick={handleSearch}
+                    size="small"
+                    variant="contained"
+                  >
+                    Go
+                  </Button>
+                </InputAdornment>
+              ),
             }}
           />
+
           {/* Location Filter */}
           <FormControl sx={{ flex: 1, minWidth: 200 }}>
             <InputLabel id="location-select-label">Filter by Museum</InputLabel>
@@ -111,8 +134,9 @@ export default function Home({ tempCollection, setTempCollection }) {
               onChange={handleMediumChange}
             >
               <MenuItem value="">All Types</MenuItem>
+              <MenuItem value="Painting">Painting</MenuItem>
+              <MenuItem value="Watercolor">Watercolor</MenuItem>
               <MenuItem value="Oil on canvas">Oil on canvas</MenuItem>
-              <MenuItem value="Woodblock print">Woodblock print</MenuItem>
             </Select>
           </FormControl>
 
@@ -124,7 +148,6 @@ export default function Home({ tempCollection, setTempCollection }) {
             onClick={() => {
               setLocation("");
               setMedium("");
-              setSearchTerm("");
             }}
             sx={{ alignSelf: "center", whiteSpace: "nowrap" }}
           >

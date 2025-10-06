@@ -7,6 +7,7 @@ import ExhibitionPage from "./components/ExhibitionPage";
 import { useState } from "react";
 import { Box, display, flexDirection } from "@mui/system";
 
+
 function App() {
   const [tempCollection, setTempCollection] = useState([]);
   const [userTitleInput, setUserTitleInput] = useState("");
