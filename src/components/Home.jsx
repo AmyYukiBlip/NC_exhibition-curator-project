@@ -93,7 +93,9 @@ export default function Home({ tempCollection, setTempCollection }) {
               onChange={handleLocationChange}
             >
               <MenuItem value="">All Museums</MenuItem>
-              <MenuItem value="The Met">The Met</MenuItem>
+              <MenuItem value="Victoria & Albert Museum">
+                Victoria & Albert Museum
+              </MenuItem>
               <MenuItem value="The Art Institute of Chicago">
                 The Art Institute of Chicago
               </MenuItem>
@@ -111,8 +113,12 @@ export default function Home({ tempCollection, setTempCollection }) {
               onChange={handleMediumChange}
             >
               <MenuItem value="">All Types</MenuItem>
-              <MenuItem value="Oil on canvas">Oil on canvas</MenuItem>
-              <MenuItem value="Woodblock print">Woodblock print</MenuItem>
+              <MenuItem value="Painting">Painting</MenuItem>
+              <MenuItem value="Watercolour drawing">
+                Watercolour drawing
+              </MenuItem>
+              <MenuItem value="Print">Print</MenuItem>
+              <MenuItem value="Sculpture">Sculpture</MenuItem>
             </Select>
           </FormControl>
 

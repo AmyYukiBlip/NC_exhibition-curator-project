@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import { Snackbar } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -54,15 +55,20 @@ export default function ArtInfoModal({
             </Typography>
             <div className="artinfo-desc" id="art-info-modal-description">
               <div>
-                <img className="artinfo-img" src={artwork.image} />
+                <img className="artinfo-img" src={artwork.img} />
               </div>
               <Typography sx={{ mt: 2 }}>Title: {artwork.title}</Typography>
               <Typography sx={{ mt: 2 }}>Artist: {artwork.artist}</Typography>
               <Typography sx={{ mt: 2 }}>Year: {artwork.year}</Typography>
               <Typography sx={{ mt: 2 }}>Medium: {artwork.medium}</Typography>
               <Typography sx={{ mt: 2 }}>
-                View in person: {artwork.location}
+                View in person: {artwork.source}
               </Typography>
+              <Link
+                to={{
+                  pathname: artwork.link,
+                }}
+              >View Online</Link>
             </div>
 
             <Button
