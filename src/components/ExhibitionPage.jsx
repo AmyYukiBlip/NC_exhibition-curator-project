@@ -51,9 +51,10 @@ export default function ExhibitionPage({
               </p>
               <TextField
                 label="Enter Your Exhibition Title"
+                placeholder="My Exhibition"
                 variant="outlined"
                 value={userTitleInput}
-                required
+                // required
                 onChange={(e) => setUserTitleInput(e.target.value)}
                 fullWidth
                 sx={{ mt: 3 }}
@@ -61,9 +62,9 @@ export default function ExhibitionPage({
 
               <TextField
                 label="Enter a description for your collection"
+                 placeholder="A collection of works by..."
                 variant="outlined"
                 value={userDescInput}
-                required
                 onChange={(e) => setUserDescInput(e.target.value)}
                 fullWidth
                 multiline

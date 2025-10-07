@@ -61,14 +61,12 @@ export default function ArtInfoModal({
               <Typography sx={{ mt: 2 }}>Artist: {artwork.artist}</Typography>
               <Typography sx={{ mt: 2 }}>Year: {artwork.year}</Typography>
               <Typography sx={{ mt: 2 }}>Medium: {artwork.medium}</Typography>
-              <Typography sx={{ mt: 2 }}>
-                View in person: {artwork.source}
+              <Typography sx={{ mt: 2, mb: 2 }}>
+                Museum: {artwork.source}
               </Typography>
-              <Link
-                to={{
-                  pathname: artwork.link,
-                }}
-              >View Online</Link>
+              <a href={artwork.link} target="_blank" rel="noopener noreferrer">
+                View More Online
+              </a>
             </div>
 
             <Button

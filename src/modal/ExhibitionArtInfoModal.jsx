@@ -2,7 +2,6 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 const style = {
@@ -45,26 +44,19 @@ export default function ExhibitionArtInfoModal({ artwork, onClose }) {
             </Typography>
             <div className="artinfo-desc" id="art-info-modal-description">
               <div>
-                <img className="artinfo-img" src={artwork.image} />
+                <img className="artinfo-img" src={artwork.img} />
               </div>
               <Typography sx={{ mt: 2 }}>Title: {artwork.title}</Typography>
               <Typography sx={{ mt: 2 }}>Artist: {artwork.artist}</Typography>
               <Typography sx={{ mt: 2 }}>Year: {artwork.year}</Typography>
               <Typography sx={{ mt: 2 }}>Medium: {artwork.medium}</Typography>
-              <Typography sx={{ mt: 2 }}>
-                View in person: {artwork.location}
+              <Typography sx={{ mt: 2, mb: 2 }}>
+                View in person: {artwork.source}
               </Typography>
+              <a href={artwork.link} target="_blank" rel="noopener noreferrer">
+                View More Online
+              </a>
             </div>
-
-            <Button
-              variant="contained"
-              //   endIcon={<DoubleArrowIcon />}
-              //   onClick={() => {
-              //     handleTempCollection(artwork);
-              //   }}
-            >
-              View More At The Museum Online
-            </Button>
           </Box>
         </Fade>
       </Modal>

@@ -12,7 +12,7 @@ export default function TempCollectionCard({
 }) {
   return (
     <div className="t-gallery">
-      <img src={artwork.image} />
+      <img src={artwork.img} />
       <div>
         <p>"{artwork.title}"</p>
         <p>{artwork.artist}</p>

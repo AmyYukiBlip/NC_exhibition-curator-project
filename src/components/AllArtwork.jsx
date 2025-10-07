@@ -24,22 +24,24 @@ export default function AllArtwork({
 
     const vaURL = `https://api.vam.ac.uk/v2/objects/search?q=${searchTerm}&page_size=30&images_exist=1&responseFields=systemNumber,titles,_primaryMaker,_primaryDate,_primaryImageId,_images,objectType`;
 
-
-    const aicURL = `https://api.artic.edu/api/v1/artworks/search?q=${searchTerm}&limit=30&fields=id,title,image_id,artist_title,artwork_type_title`;
+    const aicURL = `https://api.artic.edu/api/v1/artworks/search?q=${searchTerm}&limit=30&fields=id,title,image_id,artist_title,date_display,artwork_type_title`;
 
     const fetchVA = fetch(vaURL)
       .then((res) => res.json())
       .then((data) => {
         console.log("V&A raw records:", data.records);
-        return data.records?.map((item) => normaliseVA(item)).filter(Boolean) || [];
-      })
+        return (
+          data.records?.map((item) => normaliseVA(item)).filter(Boolean) || []
+        );
+      });
     const fetchAIC = fetch(aicURL)
       .then((res) => res.json())
-      .then(
-        (data) =>
+      .then((data) => {
+        console.log("AIC raw records:", data.data);
+        return (
           data.data?.map((item) => normaliseAIC(item)).filter(Boolean) || []
-      );
-
+        );
+      });
     Promise.all([fetchVA, fetchAIC])
       .then(([vaArtworks, aicArtworks]) => {
         setArtwork([...vaArtworks, ...aicArtworks]);
@@ -52,9 +54,6 @@ export default function AllArtwork({
         setIsLoading(false);
       });
   }, [searchTerm, location, medium]);
-
-  console.log("artworks post fetch:", artwork)
-
 
   const filteredArtworks = artwork.filter((art) => {
     const matchesSearch =

@@ -22,7 +22,7 @@ export default function AllTempArtwork({
       {tempCollection.length === 0 ? (
         <p>
           Please add art from the main gallery to start your temporary
-          collection
+          collection. Once added, you can create your exhibition! 🖼️
         </p>
       ) : (
         <>
