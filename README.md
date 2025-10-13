@@ -14,6 +14,8 @@ Users can also:
 
 - **React** – Frontend library
 - **Vite** – Development & build tool
+- **Vitest** - Unit test framework powered by Vite (requires Vite >=v3.0.0 and Node >=v14.18)
+- **@testing-library/react** - Render & test React components in a simulated DOM environment (via jsdom) and query for elements (e.g. screen.getByText).
 - **@mui/material** (^7.3.2) – UI components for search bar, filtering, and layout
 - **@mui/icons-material** – Icon set for UI elements
 - **react-router-dom** (^7.9.1) – Client-side routing and navigation

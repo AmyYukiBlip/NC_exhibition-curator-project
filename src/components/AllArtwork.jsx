@@ -29,7 +29,7 @@ export default function AllArtwork({
     const fetchVA = fetch(vaURL)
       .then((res) => res.json())
       .then((data) => {
-        console.log("V&A raw records:", data.records);
+        console.log("V&A data.records:", data.records);
         return (
           data.records?.map((item) => normaliseVA(item)).filter(Boolean) || []
         );
@@ -37,7 +37,7 @@ export default function AllArtwork({
     const fetchAIC = fetch(aicURL)
       .then((res) => res.json())
       .then((data) => {
-        console.log("AIC raw records:", data.data);
+        console.log("AIC data.data:", data.data);
         return (
           data.data?.map((item) => normaliseAIC(item)).filter(Boolean) || []
         );
@@ -49,7 +49,7 @@ export default function AllArtwork({
       })
 
       .catch((error) => {
-        console.log("Error fetching artworks", error);
+        console.log("Error fetching artworks:", error);
         setError(true);
         setIsLoading(false);
       });
