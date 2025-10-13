@@ -1,7 +1,9 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, test, expect, vi, beforeEach } from "vitest";
 import AllArtwork from "../src/components/AllArtwork";
 import { normaliseAIC, normaliseVA } from "../src/utils/NormaliseApiData";
+import ExhibitionPage from "../src/components/ExhibitionPage";
+import { MemoryRouter } from "react-router-dom";
 
 // Mock fetch globally
 global.fetch = vi.fn();
@@ -25,6 +27,16 @@ vi.mock("../src/utils/NormaliseApiData", () => ({
     img: "aic-image.jpg",
   })),
 }));
+
+// mock artwork data
+const mockArtwork = {
+  id: "1",
+  title: "Mock Artwork",
+  artist: "Mock Artist",
+  source: "va",
+  medium: "Painting",
+  img: "mock-image.jpg",
+};
 
 // __ TESTS __
 
@@ -177,7 +189,95 @@ describe("AllArtwork", () => {
     });
 
     render(<AllArtwork searchTerm="" location="" medium="" />);
-    expect(await screen.findByText(/404 Not Found/i)).toBeTruthy;
+    expect(await screen.findByText(/404 Not Found/i)).toBeTruthy();
     expect(screen.queryByRole("progressbar")).toBeNull();
+  });
+});
+
+describe("ExhibitionPage", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  test("temp artwork appears in /exhibition on submit", async () => {
+    const tempCollection = [mockArtwork];
+    const setFormSubmitted = vi.fn();
+    const setUserTitleInput = vi.fn();
+    const setUserDescInput = vi.fn();
+
+    render(
+      <MemoryRouter>
+        <ExhibitionPage
+          tempCollection={tempCollection}
+          setTempCollection={() => {}}
+          setUserTitleInput={setUserTitleInput}
+          setUserDescInput={setUserDescInput}
+          userTitleInput={"Test Exhibition"}
+          userDescInput={"A great collection"}
+          formSubmitted={false}
+          setFormSubmitted={setFormSubmitted}
+        />
+      </MemoryRouter>
+    );
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+    fireEvent.click(submitButton);
+
+    expect(await screen.findByText(/exhibition created/i)).toBeTruthy();
+  });
+
+  test("snackbar alerts user when trying to submit an empty collection", async () => {
+    const tempCollection = [];
+    const setFormSubmitted = vi.fn();
+    const setUserTitleInput = vi.fn();
+    const setUserDescInput = vi.fn();
+
+    render(
+      <MemoryRouter>
+        <ExhibitionPage
+          tempCollection={tempCollection}
+          setTempCollection={() => {}}
+          setUserTitleInput={setUserTitleInput}
+          setUserDescInput={setUserDescInput}
+          userTitleInput=""
+          userDescInput=""
+          formSubmitted={false}
+          setFormSubmitted={setFormSubmitted}
+        />
+      </MemoryRouter>
+    );
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+    fireEvent.click(submitButton);
+
+    expect(await screen.findByText(/your exhibition is empty/i)).toBeTruthy();
+  });
+
+  test("calls setUserTitleInput and setUserDescInput on input change", () => {
+    const setUserTitleInput = vi.fn();
+    const setUserDescInput = vi.fn();
+
+    render(
+      <MemoryRouter>
+        <ExhibitionPage
+          tempCollection={[{ id: "1" }]} // avoid empty check
+          setTempCollection={() => {}}
+          setUserTitleInput={setUserTitleInput}
+          setUserDescInput={setUserDescInput}
+          userTitleInput=""
+          userDescInput=""
+          formSubmitted={false}
+          setFormSubmitted={() => {}}
+        />
+      </MemoryRouter>
+    );
+
+    fireEvent.change(screen.getByLabelText(/Enter Your Exhibition Title/i), {
+      target: { value: "New Title" },
+    });
+    fireEvent.change(screen.getByLabelText(/Enter a description/i), {
+      target: { value: "New Description" },
+    });
+
+    expect(setUserTitleInput).toHaveBeenCalledWith("New Title");
+    expect(setUserDescInput).toHaveBeenCalledWith("New Description");
   });
 });

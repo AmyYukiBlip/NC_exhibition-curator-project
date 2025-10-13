@@ -25,7 +25,7 @@ export default function ExhibitionPage({
 }) {
   const [selectedArtwork, setSelectedArtwork] = useState(null);
   const [successSnackOpen, setSuccessSnackOpen] = useState(false);
-    const [emptyExpoSnackOpen, setEmptyExpoSnackOpen] = useState(false);
+  const [emptyExpoSnackOpen, setEmptyExpoSnackOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -36,8 +36,7 @@ export default function ExhibitionPage({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (tempCollection.length === 0) {
-      setEmptyExpoSnackOpen(true)
-      // alert("Oops, your exhibition is empty, go back and add some art!");
+      setEmptyExpoSnackOpen(true);
       return;
     }
     setSuccessSnackOpen(true);
@@ -97,7 +96,6 @@ export default function ExhibitionPage({
                 </Button>
               </Stack>
             </Box>
-            
           ) : (
             <>
               <Box sx={{ flexDirection: "column", gap: 2, padding: 3 }}>
@@ -159,15 +157,15 @@ export default function ExhibitionPage({
             autoHideDuration={3000}
             onClose={() => setSuccessSnackOpen(false)}
             message={"Exhibition created successfully!"}
-            anchorOrigin={{ vertical: "bottom", horizontal: "middle" }}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           />
 
-            <Snackbar
+          <Snackbar
             open={emptyExpoSnackOpen}
             autoHideDuration={3000}
             onClose={() => setEmptyExpoSnackOpen(false)}
             message={"Oops, your exhibition is empty, please Add More art!"}
-            anchorOrigin={{ vertical: "bottom", horizontal: "middle" }}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           />
         </div>
       </div>
