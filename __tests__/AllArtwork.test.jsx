@@ -26,7 +26,6 @@ vi.mock("../src/utils/NormaliseApiData", () => ({
   })),
 }));
 
-
 // __ TESTS __
 
 describe("AllArtwork", () => {
@@ -113,11 +112,10 @@ describe("AllArtwork", () => {
     expect(normaliseVA).toHaveBeenCalledWith(vaRaw);
     expect(normaliseAIC).toHaveBeenCalledWith(aicRaw);
     console.log("test log:", normaliseAIC.mock.calls); // array of all calls with args
-
   });
 
   test("displays loading spinner while awaiting API results", async () => {
-    // Create a delayed fetch
+    // Creates a delayed fetch
     let resolveVA, resolveAIC;
     fetch.mockImplementation((url) => {
       if (url.includes("vam.ac.uk")) {
@@ -147,15 +145,39 @@ describe("AllArtwork", () => {
     resolveAIC();
   });
 
+  test(`displays search failure message to user when input has no match`, async () => {
+    fetch.mockImplementation((url) => {
+      if (url.includes("vam.ac.uk")) {
+        return Promise.resolve({
+          json: () =>
+            Promise.resolve({
+              records: [{}],
+            }),
+        });
+      }
+      if (url.includes("artic.edu")) {
+        return Promise.resolve({
+          json: () =>
+            Promise.resolve({
+              data: [{}],
+            }),
+        });
+      }
+      return Promise.reject("Unknown URL");
+    });
+
+    render(<AllArtwork searchTerm="Van Goth" location="" medium="" />);
+
+    expect(await screen.findByText(/No artwork matching search/i)).toBeTruthy();
+  });
+
   test(`displays error message on API failure`, async () => {
     fetch.mockImplementation(() => {
       return Promise.reject(new Error("Network Error!"));
     });
 
     render(<AllArtwork searchTerm="" location="" medium="" />);
-
-    // expected results
-    expect(await screen.findAllByText(/404 Not Found/i)).toBeTruthy;
+    expect(await screen.findByText(/404 Not Found/i)).toBeTruthy;
     expect(screen.queryByRole("progressbar")).toBeNull();
   });
 });
