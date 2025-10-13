@@ -82,13 +82,17 @@ export default function AllArtwork({
 
   return (
     <div className="gallery-container">
-      {filteredArtworks.map((art) => (
-        <ArtworkCard
-          key={art.id}
-          artwork={art}
-          onViewDetails={handleViewDetails}
-        />
-      ))}
+      {filteredArtworks.length > 0 ? (
+        filteredArtworks.map((art) => (
+          <ArtworkCard
+            key={art.id}
+            artwork={art}
+            onViewDetails={handleViewDetails}
+          />
+        ))
+      ) : (
+        <p>No artwork matching search found, please try again</p>
+      )}
 
       {selectedArtwork && (
         <ArtInfoModal
