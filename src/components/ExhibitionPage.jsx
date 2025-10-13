@@ -24,7 +24,9 @@ export default function ExhibitionPage({
   setFormSubmitted,
 }) {
   const [selectedArtwork, setSelectedArtwork] = useState(null);
-  const [SuccessSnackOpen, setSuccessSnackOpen] = useState(false);
+  const [successSnackOpen, setSuccessSnackOpen] = useState(false);
+    const [emptyExpoSnackOpen, setEmptyExpoSnackOpen] = useState(false);
+
   const navigate = useNavigate();
 
   const handleViewDetails = (art) => {
@@ -33,6 +35,11 @@ export default function ExhibitionPage({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (tempCollection.length === 0) {
+      setEmptyExpoSnackOpen(true)
+      // alert("Oops, your exhibition is empty, go back and add some art!");
+      return;
+    }
     setSuccessSnackOpen(true);
     setFormSubmitted(true);
   };
@@ -40,7 +47,7 @@ export default function ExhibitionPage({
   return (
     <>
       <div className="page-container">
-        <div >
+        <div>
           {!formSubmitted ? (
             <Box component="form" onSubmit={handleSubmit}>
               <h1>Create your Exhibition!</h1>
@@ -62,7 +69,7 @@ export default function ExhibitionPage({
 
               <TextField
                 label="Enter a description for your collection"
-                 placeholder="A collection of works by..."
+                placeholder="A collection of works by..."
                 variant="outlined"
                 value={userDescInput}
                 onChange={(e) => setUserDescInput(e.target.value)}
@@ -90,6 +97,7 @@ export default function ExhibitionPage({
                 </Button>
               </Stack>
             </Box>
+            
           ) : (
             <>
               <Box sx={{ flexDirection: "column", gap: 2, padding: 3 }}>
@@ -147,10 +155,18 @@ export default function ExhibitionPage({
           )}
 
           <Snackbar
-            open={SuccessSnackOpen}
+            open={successSnackOpen}
             autoHideDuration={3000}
             onClose={() => setSuccessSnackOpen(false)}
             message={"Exhibition created successfully!"}
+            anchorOrigin={{ vertical: "bottom", horizontal: "middle" }}
+          />
+
+            <Snackbar
+            open={emptyExpoSnackOpen}
+            autoHideDuration={3000}
+            onClose={() => setEmptyExpoSnackOpen(false)}
+            message={"Oops, your exhibition is empty, please Add More art!"}
             anchorOrigin={{ vertical: "bottom", horizontal: "middle" }}
           />
         </div>
