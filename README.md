@@ -42,13 +42,13 @@ Build the project via vite with `npm run build`
 - Node.js: ^v24.8.0
 - npm: Comes with Node.js
 
-### Testing
+### Vitest Testing
 
 To run Vitest and see the tests in this repo: `npm run test`
 
-> Vitest provides mocks (vi.mock, vi.fn, etc.) and helpers around running tests, assertions, setting globals. Vitest supports both happy-dom or jsdom for mocking DOM and browser APIs. However, they don't come with Vitest and needed to be installed separately. The environment in the config file is then updated. (https://vitest.dev/guide/features.html)
+> Vitest provides mocks (vi.mock, vi.fn, etc.) and helpers around running tests, assertions, setting globals. Vitest supports both happy-dom or jsdom for mocking DOM and browser APIs. However, they don't come with Vitest and needed to be installed separately. The environment in the config file is then updated for jsdom. (https://vitest.dev/guide/features.html)
 
-> @testing-library/react is included to be able to render and test React components in a simulated DOM environment (via jsdom) and query for elements (e.g. screen.getByText).
+> @testing-library/react is included to be able to render and test React components in the simulated DOM environment (via jsdom) and query for elements (e.g. screen.getByText).
 
 ### Lighthouse Accessibility Audit
 
@@ -56,7 +56,7 @@ To run an audit via CLI and see the report in the browser:
 
 First run: `npm run dev`
 
-Next, in a second temrinal, run: `lighthouse <dev url> --view`
+Next, in a second terminal, run: `lighthouse <dev url> --view`
 
 To see all the options: `lighthouse --help`
 
