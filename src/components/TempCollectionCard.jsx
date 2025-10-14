@@ -12,7 +12,7 @@ export default function TempCollectionCard({
 }) {
   return (
     <div className="t-gallery">
-      <img src={artwork.img} />
+      <img src={artwork.img} alt="Temp Collection Gallery Image"/>
       <div>
         <p>"{artwork.title}"</p>
         <p>{artwork.artist}</p>
@@ -20,7 +20,7 @@ export default function TempCollectionCard({
       <div className="t-gallery-buttons">
         <Stack direction="row" spacing={1}>
           <Button variant="contained" onClick={() => onViewDetails(artwork)}>
-            INFO
+            Quick View
           </Button>
           <Button
             variant="contained"

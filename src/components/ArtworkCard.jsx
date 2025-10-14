@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 export default function ArtworkCard({ artwork, onViewDetails }) {
   return (
     <div className="gallery">
-      <img src={artwork.img} />
+      <img src={artwork.img} alt="Gallery Artwork"/>
       <div className="g-description">
         <p className="g-desc-smaller">"{artwork.title}"</p>
         <p>Artist: {artwork.artist}</p>

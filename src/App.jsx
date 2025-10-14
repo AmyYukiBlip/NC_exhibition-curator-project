@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import ExhibitionPage from "./components/ExhibitionPage";
 import { useState } from "react";
-import { Box, display, flexDirection } from "@mui/system";
+import { Box } from "@mui/system";
 
 function App() {
   const [tempCollection, setTempCollection] = useState([]);

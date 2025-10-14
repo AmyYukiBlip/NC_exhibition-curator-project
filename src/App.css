@@ -90,7 +90,7 @@
   padding: 10px;
 }
 .gallery:hover {
-  border: 2px solid #ff7b00c7;
+  border: 2px solid #0044ffc7;
 }
 .gallery img {
   width: 100%;
@@ -130,11 +130,11 @@
 }
 
 .t-gallery-buttons button {
-  font-size: 0.8rem;
-  padding: 10px;
+  font-size: 0.7rem;
+  padding: 5px;
   align-content: center;
   min-width: 32px;
-  height: 32px;
+  height: 40px;
 }
 
 /* ArtInfoModal Styling */
@@ -161,8 +161,8 @@
 
 footer {
   flex-shrink: 0;
-  background-color: #eee;
+  background-color: #131313;
   padding: 2rem;
   text-align: center;
-  color: #888;
+  color: #ffffff;
 }

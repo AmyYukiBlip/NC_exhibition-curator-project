@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import { Snackbar } from "@mui/material";
-import { Link } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -16,9 +15,9 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "2px solid #0044ffc7",
   boxShadow: 24,
-  p: 4,
+  p: 6,
 };
 
 export default function ArtInfoModal({
@@ -55,17 +54,29 @@ export default function ArtInfoModal({
             </Typography>
             <div className="artinfo-desc" id="art-info-modal-description">
               <div>
-                <img className="artinfo-img" src={artwork.img} />
+                <img
+                  className="artinfo-img"
+                  src={artwork.img}
+                  alt="Gallery Image"
+                />
               </div>
-              <Typography sx={{ mt: 2 }}>Title: {artwork.title}</Typography>
-              <Typography sx={{ mt: 2 }}>Artist: {artwork.artist}</Typography>
-              <Typography sx={{ mt: 2 }}>Year: {artwork.year}</Typography>
-              <Typography sx={{ mt: 2 }}>Medium: {artwork.medium}</Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Title:</strong> {artwork.title}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Artist:</strong> {artwork.artist}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Year:</strong> {artwork.year}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Medium:</strong> {artwork.medium}
+              </Typography>
               <Typography sx={{ mt: 2, mb: 2 }}>
-                Museum: {artwork.source}
+                <strong>Museum:</strong> {artwork.source}
               </Typography>
               <a href={artwork.link} target="_blank" rel="noopener noreferrer">
-                View More Online
+                View at the museum online
               </a>
             </div>
 

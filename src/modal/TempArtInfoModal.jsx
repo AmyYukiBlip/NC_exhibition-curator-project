@@ -13,10 +13,10 @@ const style = {
   bgcolor: "background.paper",
   border: "2px solid #0044ffc7",
   boxShadow: 24,
-  p: 4,
+  p: 5,
 };
 
-export default function ExhibitionArtInfoModal({ artwork, onClose }) {
+export default function TempArtInfoModal({ artwork, onClose }) {
   return (
     <div>
       <Modal
@@ -37,25 +37,34 @@ export default function ExhibitionArtInfoModal({ artwork, onClose }) {
             <Typography
               className="artinfo-title"
               id="art-info-modal-title"
-              variant="h5"
+              variant="h6"
               component="h2"
             >
               Artwork Details
             </Typography>
             <div className="artinfo-desc" id="art-info-modal-description">
               <div>
-                <img className="artinfo-img" src={artwork.img} alt="Exhibition Gallery Image"/>
+                <img
+                  className="artinfo-img"
+                  src={artwork.img}
+                  alt="Temporary Collection Gallery Image"
+                />
               </div>
-              <Typography sx={{ mt: 2 }}><strong>Title:</strong> {artwork.title}</Typography>
-              <Typography sx={{ mt: 2 }}><strong>Artist:</strong> {artwork.artist}</Typography>
-              <Typography sx={{ mt: 2 }}><strong>Year:</strong> {artwork.year}</Typography>
-              <Typography sx={{ mt: 2 }}><strong>Medium:</strong> {artwork.medium}</Typography>
-              <Typography sx={{ mt: 2, mb: 2 }}>
-                <strong>View in person:</strong> {artwork.source}
+              <Typography sx={{ mt: 2 }}>
+                <strong>Title:</strong> {artwork.title}
               </Typography>
-              <a href={artwork.link} target="_blank" rel="noopener noreferrer">
-                View at the museum online
-              </a>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Artist:</strong> {artwork.artist}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Year:</strong> {artwork.year}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Medium:</strong> {artwork.medium}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Museum:</strong> {artwork.source}
+              </Typography>
             </div>
           </Box>
         </Fade>

@@ -1,9 +1,9 @@
 import TempCollectionCard from "./TempCollectionCard";
 import { Button, Snackbar } from "@mui/material";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
-import ArtInfoModal from "../modal/ArtInfoModal";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import TempArtInfoModal from "../modal/TempArtInfoModal";
 
 //  ** This component is rendering within the homepage as the temp collection component/gallery,
 //     mapping over TempCollectionCards **
@@ -45,7 +45,7 @@ export default function AllTempArtwork({
         </>
       )}
       {selectedArtwork && (
-        <ArtInfoModal
+        <TempArtInfoModal
           artwork={selectedArtwork}
           onClose={() => setSelectedArtwork(null)}
           handleTempCollection={handleTempCollection}
