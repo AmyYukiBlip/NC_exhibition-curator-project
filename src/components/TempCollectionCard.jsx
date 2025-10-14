@@ -1,6 +1,5 @@
-import { Button } from "@mui/material";
+import { Button, ButtonGroup } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Stack from "@mui/material/Stack";
 
 // ** This is each artwork card displayed in the temp collection gallery **
 
@@ -12,28 +11,31 @@ export default function TempCollectionCard({
 }) {
   return (
     <div className="t-gallery">
-      <img src={artwork.img} alt="Temp Collection Gallery Image"/>
+      <img src={artwork.img} alt="Temp Collection Gallery Image" />
       <div>
         <p>"{artwork.title}"</p>
         <p>{artwork.artist}</p>
       </div>
-      <div className="t-gallery-buttons">
-        <Stack direction="row" spacing={1}>
-          <Button variant="contained" onClick={() => onViewDetails(artwork)}>
-            Quick View
-          </Button>
-          <Button
-            variant="contained"
-            color="error"
-            onClick={() => {
-              onRemove();
-              setSnackOpen(true);
-            }}
-          >
-            <DeleteIcon />
-          </Button>
-        </Stack>
-      </div>
+      <ButtonGroup className="t-gallery-button">
+        <Button
+          variant="contained"
+          onClick={() => onViewDetails(artwork)}
+          sx={{fontSize: "0.7rem", }}
+        >
+          Quick View
+        </Button>
+        <Button
+          size="small"
+          variant="contained"
+          color="error"
+          onClick={() => {
+            onRemove();
+            setSnackOpen(true);
+          }}
+        >
+          <DeleteIcon fontSize="small" />
+        </Button>
+      </ButtonGroup>
     </div>
   );
 }

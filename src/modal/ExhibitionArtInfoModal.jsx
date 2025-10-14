@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
+import { IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
@@ -42,14 +44,38 @@ export default function ExhibitionArtInfoModal({ artwork, onClose }) {
             >
               Artwork Details
             </Typography>
+            <IconButton
+              aria-label="close"
+              onClick={onClose}
+              sx={(theme) => ({
+                position: "absolute",
+                right: 30,
+                top: 30,
+                color: theme.palette.grey[500],
+              })}
+            >
+              <CloseIcon />
+            </IconButton>
             <div className="artinfo-desc" id="art-info-modal-description">
               <div>
-                <img className="artinfo-img" src={artwork.img} alt="Exhibition Gallery Image"/>
+                <img
+                  className="artinfo-img"
+                  src={artwork.img}
+                  alt="Exhibition Gallery Image"
+                />
               </div>
-              <Typography sx={{ mt: 2 }}><strong>Title:</strong> {artwork.title}</Typography>
-              <Typography sx={{ mt: 2 }}><strong>Artist:</strong> {artwork.artist}</Typography>
-              <Typography sx={{ mt: 2 }}><strong>Year:</strong> {artwork.year}</Typography>
-              <Typography sx={{ mt: 2 }}><strong>Medium:</strong> {artwork.medium}</Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Title:</strong> {artwork.title}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Artist:</strong> {artwork.artist}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Year:</strong> {artwork.year}
+              </Typography>
+              <Typography sx={{ mt: 2 }}>
+                <strong>Medium:</strong> {artwork.medium}
+              </Typography>
               <Typography sx={{ mt: 2, mb: 2 }}>
                 <strong>View in person:</strong> {artwork.source}
               </Typography>

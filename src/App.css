@@ -17,7 +17,7 @@
   padding: 0.3em;
 }
 
-.nav-link{
+.nav-link {
   display: inline-block;
   color: #fefdff;
   margin: 0.5rem;
@@ -129,12 +129,10 @@
   height: auto;
 }
 
-.t-gallery-buttons button {
-  font-size: 0.7rem;
-  padding: 5px;
+.t-gallery-button {
   align-content: center;
-  min-width: 32px;
-  height: 40px;
+  width: 100%;
+  height: auto;
 }
 
 /* ArtInfoModal Styling */
@@ -157,7 +155,6 @@
   justify-content: center;
   text-align: center;
 }
-
 
 footer {
   flex-shrink: 0;

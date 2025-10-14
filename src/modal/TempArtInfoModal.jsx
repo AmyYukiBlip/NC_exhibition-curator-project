@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
+import { IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
@@ -42,6 +44,18 @@ export default function TempArtInfoModal({ artwork, onClose }) {
             >
               Artwork Details
             </Typography>
+            <IconButton
+              aria-label="close"
+              onClick={onClose}
+              sx={(theme) => ({
+                position: "absolute",
+                right: 30,
+                top: 30,
+                color: theme.palette.grey[500],
+              })}
+            >
+              <CloseIcon />
+            </IconButton>
             <div className="artinfo-desc" id="art-info-modal-description">
               <div>
                 <img

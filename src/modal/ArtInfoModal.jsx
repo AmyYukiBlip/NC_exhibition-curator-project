@@ -4,9 +4,10 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
-import { Snackbar } from "@mui/material";
+import { IconButton, Snackbar } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -52,6 +53,18 @@ export default function ArtInfoModal({
             >
               Artwork Details
             </Typography>
+            <IconButton
+              aria-label="close"
+              onClick={onClose}
+              sx={(theme) => ({
+                position: "absolute",
+                right: 30,
+                top: 30,
+                color: theme.palette.grey[500],
+              })}
+            >
+              <CloseIcon />
+            </IconButton>
             <div className="artinfo-desc" id="art-info-modal-description">
               <div>
                 <img
