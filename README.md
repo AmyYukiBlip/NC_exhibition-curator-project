@@ -3,23 +3,22 @@
 A web application built with **React** + **Vite**, allowing users to search, filter and explore artworks from multiple museum APIs.
 
 Users can also:
-- view more info on the artwork with a modal 
+
+- view more info on the artwork with a modal
 - view even more info with the museum URLs tailored to each artwork
 - add/remove artwork in a temporary collection
 - create an exhibition page from the temporary collection, adding a custom title & description
-
-
 
 ## 📦 Tech Stack & Packages
 
 - **React** – Frontend library
 - **Vite** – Development & build tool
-- **Vitest** - Unit test framework powered by Vite (requires Vite >=v3.0.0 and Node >=v14.18)
-- **@testing-library/react** - Render & test React components in a simulated DOM environment (via jsdom) and query for elements (e.g. screen.getByText).
-- **@mui/material** (^7.3.2) – UI components for search bar, filtering, and layout
+- **Vitest** - Unit test framework powered by Vite
+- **@testing-library/react** - Test React components in a simulated DOM environment
+- **react-router-dom** - Client-side routing and navigation
+- **Lighthouse CLI** - Accessibility & audit performance tool
+- **@mui/material** - Component library used for layout, forms, modals, and design consistency
 - **@mui/icons-material** – Icon set for UI elements
-- **react-router-dom** (^7.9.1) – Client-side routing and navigation
-
 
 ## 🔗 APIs Used
 
@@ -32,16 +31,32 @@ This app fetches and displays data using IIIF-compliant image endpoints and norm
 
 If you would like to clone this project locally, please fork this repo on GitHub: https://github.com/AmyYukiBlip/NC_exhibition-curator-project
 
-Make sure you install all required dependencies with ```npm install```
+Next, make sure you install all required dependencies with `npm install`
 
-Run the app with ```npm run dev```
+Then run the app with `npm run dev`
 
-Build the project via vite with ```npm run build```
+Build the project via vite with `npm run build`
 
-### Versions Needed
+#### Versions Needed
 
-- Node.js: ^v20 or ^v24.8.0
+- Node.js: ^v24.8.0
 - npm: Comes with Node.js
 
+### Testing
 
+To run Vitest and see the tests in this repo: `npm run test`
+
+> Vitest provides mocks (vi.mock, vi.fn, etc.) and helpers around running tests, assertions, setting globals. Vitest supports both happy-dom or jsdom for mocking DOM and browser APIs. However, they don't come with Vitest and needed to be installed separately. The environment in the config file is then updated. (https://vitest.dev/guide/features.html)
+
+> @testing-library/react is included to be able to render and test React components in a simulated DOM environment (via jsdom) and query for elements (e.g. screen.getByText).
+
+### Lighthouse Accessibility Audit
+
+To run an audit via CLI and see the report in the browser:
+
+First run: `npm run dev`
+
+Next, in a second temrinal, run: `lighthouse <dev url> --view`
+
+To see all the options: `lighthouse --help`
 
