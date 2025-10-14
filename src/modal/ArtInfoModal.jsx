@@ -19,6 +19,8 @@ const style = {
   border: "2px solid #0044ffc7",
   boxShadow: 24,
   p: 6,
+  maxHeight: "90vh",
+  overflowY: "auto",
 };
 
 export default function ArtInfoModal({
