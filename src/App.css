@@ -89,33 +89,52 @@
 /* Individual artworkCard within main gallery & exhibition */
 
 .gallery {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
   border: 2px solid hsl(0, 0%, 60%);
   border-radius: 8px;
   padding: 5px;
   width: 200px;
+  height: 450px;
   margin: 10px;
   text-align: center;
   background-color: #fff;
   transition: border 0.3s ease;
 }
 
-.g-description {
-  padding: 10px;
-}
 .gallery:hover {
   border: 2px solid #0044ffc7;
 }
-.gallery img {
+
+.g-image-wrapper {
+  height: 230px;
   width: 100%;
-  height: auto;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.g-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.g-description {
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.g-description p {
+  margin: 8px 0px;
 }
 
 .g-desc-smaller {
-  font-size: 0.8rem;
-}
-
-.g-link {
   font-size: 0.8rem;
 }
 
@@ -131,24 +150,57 @@
 /* Individual artwork card within temporary collection */
 
 .t-gallery {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
   border: 2px solid hsl(0, 0%, 60%);
   border-radius: 8px;
-  width: 100px;
-  padding: 5px;
-  font-size: 0.8rem;
+  padding: 3px;
+  width: 140px;
+  height: 250px;
+  margin: 5px 0px;
   text-align: center;
+  background-color: #fff;
+  transition: border 0.3s ease;
 }
 
-.t-gallery img {
+.t-image-wrapper {
+  height: 160px;
   width: 100%;
-  height: auto;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.t-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.t-description {
+  padding: 5px;
+  margin: 0px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 0.8rem;
+}
+
+.t-description p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 5px;
 }
 
 .t-gallery-button {
+  display: flex;
   align-content: center;
   width: 100%;
-  height: auto;
+  margin-top: auto;
 }
 
 /* ArtInfoModal Styling */
@@ -168,6 +220,7 @@
   flex-grow: 1;
   padding: 2rem;
   display: flex;
+  /* flex-direction: column; */
   justify-content: center;
   text-align: center;
 }

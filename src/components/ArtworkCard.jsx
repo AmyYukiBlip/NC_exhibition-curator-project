@@ -5,13 +5,15 @@ import Button from "@mui/material/Button";
 export default function ArtworkCard({ artwork, onViewDetails }) {
   return (
     <div className="gallery">
-      <img src={artwork.img} alt="Gallery Artwork"/>
+      <div className="g-image-wrapper">
+        <img src={artwork.img} alt="Gallery Artwork" />
+      </div>
       <div className="g-description">
         <p className="g-desc-smaller">"{artwork.title}"</p>
         <p>Artist: {artwork.artist}</p>
-        <p>{artwork.source}</p>
-        <Button onClick={() => onViewDetails(artwork)}>View More</Button>
+        <p className="g-desc-smaller">{artwork.source}</p>
       </div>
+      <Button onClick={() => onViewDetails(artwork)}>View More</Button>
     </div>
   );
 }

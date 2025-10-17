@@ -39,6 +39,14 @@ export default function ExhibitionPage({
       setEmptyExpoSnackOpen(true);
       return;
     }
+
+    if (!userTitleInput.trim()) {
+      setUserTitleInput("My Exhibition");
+    }
+
+    if (!userDescInput.trim()) {
+      setUserDescInput("A collection of my favourite artwork...");
+    }
     setSuccessSnackOpen(true);
     setFormSubmitted(true);
   };
@@ -56,11 +64,10 @@ export default function ExhibitionPage({
                 to see your exhibition!
               </p>
               <TextField
-                label="Enter Your Exhibition Title"
+                label="Enter a exhibition title"
                 placeholder="My Exhibition"
                 variant="outlined"
                 value={userTitleInput}
-                // required
                 onChange={(e) => setUserTitleInput(e.target.value)}
                 fullWidth
                 sx={{ mt: 3 }}
@@ -68,7 +75,7 @@ export default function ExhibitionPage({
 
               <TextField
                 label="Enter a description for your collection"
-                placeholder="A collection of works by..."
+                placeholder="A collection of my favourite artwork..."
                 variant="outlined"
                 value={userDescInput}
                 onChange={(e) => setUserDescInput(e.target.value)}
@@ -98,14 +105,23 @@ export default function ExhibitionPage({
             </Box>
           ) : (
             <>
-              <Box sx={{ flexDirection: "column", gap: 2, padding: 3 }}>
+              <Box sx={{ textAlign: "center", padding: 3 }}>
                 <Typography variant="h3" sx={{ mt: 2, mb: 3 }}>
                   {userTitleInput}
                 </Typography>
                 <Typography variant="body1" sx={{ mt: 2, mb: 3 }}>
                   {userDescInput}
                 </Typography>
-
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  gap: 1,
+                  padding: 2,
+                }}
+              >
                 {tempCollection.map((art) => (
                   <ArtworkCard
                     key={art.id}
@@ -114,14 +130,12 @@ export default function ExhibitionPage({
                   />
                 ))}
               </Box>
-              <Box sx={{ flexWrap: "Wrap", gap: 2 }}>
-                {selectedArtwork && (
-                  <ExhibitionArtInfoModal
-                    artwork={selectedArtwork}
-                    onClose={() => setSelectedArtwork(null)}
-                  />
-                )}
-              </Box>
+              {selectedArtwork && (
+                <ExhibitionArtInfoModal
+                  artwork={selectedArtwork}
+                  onClose={() => setSelectedArtwork(null)}
+                />
+              )}
               <Stack
                 direction="row"
                 spacing={2}

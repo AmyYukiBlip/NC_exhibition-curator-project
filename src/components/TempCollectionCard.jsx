@@ -10,10 +10,12 @@ export default function TempCollectionCard({
 }) {
   return (
     <div className="t-gallery">
-      <img src={artwork.img} alt="Temp Collection Gallery Image" />
-      <div>
+      <div className="t-image-wrapper">
+        <img src={artwork.img} alt="Temp Collection Gallery Image" />
+      </div>
+      <div className="t-description">
         <p>"{artwork.title}"</p>
-        <p>{artwork.artist}</p>
+        <p>By {artwork.artist}</p>
       </div>
       <ButtonGroup className="t-gallery-button">
         <Button
