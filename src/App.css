@@ -32,7 +32,6 @@
   display: inline-block;
   color: #fefdff;
   background-color: #008cffc7;
-
   margin: 0px;
   min-width: 100px;
   border-radius: 5px;
@@ -43,7 +42,11 @@
 
 .nav-link:hover {
   background-color: #ffffff;
-  color: #008cffc7;;
+  color: #008cffc7;
+}
+
+.nav-logo-link:hover {
+  background-color: #008cffc7;
 }
 
 .orgname {
