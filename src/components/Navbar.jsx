@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <ul className="nav-container">
       <li>
-        <Link to="/" className="nav-link">
+        <Link to="/" className="nav-logo-link">
           <img src={EC_Logo_transparent} className="logo" alt="EC Logo" />
         </Link>
       </li>

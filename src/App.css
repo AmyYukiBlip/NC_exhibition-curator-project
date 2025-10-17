@@ -18,9 +18,20 @@
   padding: 0.3em;
 }
 
+.nav-logo-link {
+  display: inline-block;
+  color: #fefdff;
+  margin: 0px;
+  min-width: 100px;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 .nav-link {
   display: inline-block;
   color: #fefdff;
+  background-color: #008cffc7;
 
   margin: 0px;
   min-width: 100px;
@@ -31,8 +42,8 @@
 }
 
 .nav-link:hover {
-  background-color: #008cffc7;
-  color: #fefdff;
+  background-color: #ffffff;
+  color: #008cffc7;;
 }
 
 .orgname {
