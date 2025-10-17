@@ -7,7 +7,6 @@ export default function TempCollectionCard({
   artwork,
   onViewDetails,
   onRemove,
-  setSnackOpen,
 }) {
   return (
     <div className="t-gallery">
@@ -20,7 +19,7 @@ export default function TempCollectionCard({
         <Button
           variant="contained"
           onClick={() => onViewDetails(artwork)}
-          sx={{fontSize: "0.7rem", }}
+          sx={{ fontSize: "0.7rem" }}
         >
           Quick View
         </Button>
@@ -28,10 +27,7 @@ export default function TempCollectionCard({
           size="small"
           variant="contained"
           color="error"
-          onClick={() => {
-            onRemove();
-            setSnackOpen(true);
-          }}
+          onClick={onRemove}
         >
           <DeleteIcon fontSize="small" />
         </Button>

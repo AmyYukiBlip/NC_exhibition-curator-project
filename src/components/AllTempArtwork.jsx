@@ -14,7 +14,6 @@ export default function AllTempArtwork({
   handleRemoveFromCollection,
 }) {
   const [selectedArtwork, setSelectedArtwork] = useState(null);
-  const [snackOpen, setSnackOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -32,12 +31,11 @@ export default function AllTempArtwork({
               artwork={art}
               onViewDetails={setSelectedArtwork}
               onRemove={() => handleRemoveFromCollection(art.id)}
-              setSnackOpen={setSnackOpen}
             />
           ))}
-          <Button 
+          <Button
             variant="contained"
-            sx={{width: '100%', mt: 2}}
+            sx={{ width: "100%", mt: 2 }}
             endIcon={<DoubleArrowIcon />}
             onClick={() => navigate("/exhibition")}
           >
@@ -52,13 +50,6 @@ export default function AllTempArtwork({
           handleTempCollection={handleTempCollection}
         />
       )}
-      <Snackbar
-        open={snackOpen}
-        autoHideDuration={3000}
-        onClose={() => setSnackOpen(false)}
-        message={`Removed from collection`}
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-      />
     </div>
   );
 }

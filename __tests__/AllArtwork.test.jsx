@@ -225,7 +225,7 @@ describe("ExhibitionPage", () => {
     expect(await screen.findByText(/exhibition created/i)).toBeTruthy();
   });
 
-  test("snackbar alerts user when trying to submit an empty collection", async () => {
+  test("snackbar alerts user when trying to submit an empty collection to exhibition", async () => {
     const tempCollection = [];
     const setFormSubmitted = vi.fn();
     const setUserTitleInput = vi.fn();

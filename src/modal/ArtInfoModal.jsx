@@ -99,8 +99,10 @@ export default function ArtInfoModal({
               variant="contained"
               endIcon={<DoubleArrowIcon />}
               onClick={() => {
-                handleTempCollection(artwork);
-                setSnackOpen(true);
+                const wasAdded = handleTempCollection(artwork);
+                if (wasAdded) {
+                  setSnackOpen(true);
+                }
               }}
             >
               Add to Collection
@@ -113,7 +115,7 @@ export default function ArtInfoModal({
         open={snackOpen}
         autoHideDuration={3000}
         onClose={() => setSnackOpen(false)}
-        message={`"${artwork.title}" added to collection`}
+        message={`"${artwork.title}" added to collection ✅`}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       />
     </div>

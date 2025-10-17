@@ -9,6 +9,7 @@ import {
   Select,
   TextField,
   Button,
+  Snackbar,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import AllTempArtwork from "./AllTempArtwork";
@@ -17,7 +18,8 @@ export default function Home({ tempCollection, setTempCollection }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [medium, setMedium] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [removedSnackOpen, setRemovedSnackOpen] = useState(false);
+  const [duplicateSnackOpen, setDuplicateSnackOpen] = useState(false);
 
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
@@ -28,11 +30,19 @@ export default function Home({ tempCollection, setTempCollection }) {
   };
 
   const handleTempCollection = (art) => {
+    const alreadyAdded = tempCollection.some((item) => item.id === art.id);
+    if (alreadyAdded) {
+      setRemovedSnackOpen(false);
+      setDuplicateSnackOpen(true);
+      return false;
+    }
     setTempCollection((prev) => [...prev, art]);
-    setLoading(true);
+    return true
   };
 
   const handleRemoveFromCollection = (artId) => {
+    setDuplicateSnackOpen(false);
+    setRemovedSnackOpen(true);
     setTempCollection((prev) => prev.filter((art) => art.id !== artId));
   };
 
@@ -147,6 +157,22 @@ export default function Home({ tempCollection, setTempCollection }) {
             handleTempCollection={handleTempCollection}
           />
         </div>
+
+        <Snackbar
+          open={removedSnackOpen}
+          autoHideDuration={2000}
+          onClose={() => setRemovedSnackOpen(false)}
+          message="Removed from collection ❌"
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        />
+
+        <Snackbar
+          open={duplicateSnackOpen}
+          autoHideDuration={3000}
+          onClose={() => setDuplicateSnackOpen(false)}
+          message="You've already added this one 🙂"
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        />
       </main>
     </div>
   );
