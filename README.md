@@ -19,6 +19,7 @@ Users can also:
 - **Lighthouse CLI** - Accessibility & audit performance tool
 - **@mui/material** - Component library used for layout, forms, modals, and design consistency
 - **@mui/icons-material** – Icon set for UI elements
+- **Netfify's CLI** - Performing common operations on their hosting service
 
 ## 🔗 APIs Used
 
