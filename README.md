@@ -1,6 +1,8 @@
 # 🖼️ NC Exhibition Curator Project 🖼️
 
-A web application built with **React** + **Vite**, allowing users to search, filter and explore artworks from multiple museum APIs.
+A web application built with **React** + **Vite**, tested with **vitest**, & hosted on **netlify**, allowing users to search, filter and explore artworks from multiple museum APIs. 
+
+View & explore the live site https://exhibition-curator-ah.netlify.app/ 🎉 
 
 Users can also:
 
@@ -8,6 +10,7 @@ Users can also:
 - view even more info with the museum URLs tailored to each artwork
 - add/remove artwork in a temporary collection
 - create an exhibition page from the temporary collection, adding a custom title & description
+
 
 ## 📦 Tech Stack & Packages
 
@@ -28,24 +31,22 @@ Users can also:
 
 This app fetches and displays data using IIIF-compliant image endpoints and normalises fields for consistent UI rendering.
 
-## 🚀 Clone this project
+## 🚀 Work on this project
 
-If you would like to clone this project locally, please fork this repo on GitHub: https://github.com/AmyYukiBlip/NC_exhibition-curator-project
+If you would like to clone this project locally to work on yourself, please fork this repo on GitHub: https://github.com/AmyYukiBlip/NC_exhibition-curator-project
 
-Next, make sure you install all required dependencies with `npm install`
+In your CL terminal, clone the repo locally with: `git clone <url>`
+- Make sure to navigate to that new folder with `cd <file-path>`
 
-Then run the app with `npm run dev`
+Next, install all required dependencies with `npm install`
 
-Build the project via vite with `npm run build`
+You can run the app to view progress with `npm run dev`
 
-#### Versions Needed
-
-- Node.js: ^v24.8.0
-- npm: Comes with Node.js
+You can build the project via vite with `npm run build`
 
 ### Vitest Testing
 
-To run Vitest and see the tests in this repo: `npm run test`
+Run Vitest and see the tests in this repo with `npm run test`
 
 > Vitest provides mocks (vi.mock, vi.fn, etc.) and helpers around running tests, assertions, setting globals. Vitest supports both happy-dom or jsdom for mocking DOM and browser APIs. However, they don't come with Vitest and needed to be installed separately. The environment in the config file is then updated for jsdom. (https://vitest.dev/guide/features.html)
 
@@ -55,9 +56,24 @@ To run Vitest and see the tests in this repo: `npm run test`
 
 To run an audit via CLI and see the report in the browser:
 
-First run: `npm run dev`
+First run `npm run dev`
 
-Next, in a second terminal, run: `lighthouse <dev url> --view`
+Next, in a second terminal, run `lighthouse <dev url> --view`
 
-To see all the options: `lighthouse --help`
+See all the options with `lighthouse --help`
 
+### To host with netlify:
+
+Update the build version with `npm run build`
+
+Deploy to a draft URL with `netlify deploy`
+- You may need to authorise Netlify with GitHub, and follow the prompts in the CLI
+
+Deploy to the production URL with `netlify deploy –prod` 
+
+--- 
+
+#### Versions Needed
+
+- Node.js: ^v24.8.0
+- npm: Comes with Node.js
