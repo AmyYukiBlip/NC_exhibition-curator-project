@@ -10,6 +10,7 @@
   list-style-type: none;
   background-color: #0f110c;
   padding: 0px 40px 0px 0px;
+  width: auto;
 }
 
 .logo {
@@ -20,12 +21,12 @@
 .nav-link {
   display: inline-block;
   color: #fefdff;
-  margin: 0.5rem;
+
+  margin: 0px;
   min-width: 100px;
   border-radius: 5px;
-  padding: 8px;
+  padding: 10px;
   cursor: pointer;
-  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
@@ -36,8 +37,6 @@
 
 .orgname {
   color: #fefdff;
-  margin-right: 1rem;
-  font-size: 3rem;
 }
 
 /* Home Page */
@@ -48,19 +47,20 @@
   gap: 2rem;
   background-color: #c0c0c0;
   text-align: center;
-  padding: 2rem;
-  margin: 0px;
+  padding: 25px;
+  /* margin: 0px; */
+  width: auto;
 }
 
 .left-pane {
-  width: 300px;
+  flex: 1;
   padding: 25px;
   background-color: #ffffff;
 }
 
 .right-pane {
-  flex: 1;
-  padding: 25px 60px;
+  flex: 2;
+  padding: 25px;
   background-color: #ffffff;
 }
 
@@ -72,7 +72,7 @@
   justify-content: center;
 }
 
-/* Individual artwork card within main gallery & exhibition */
+/* Individual artworkCard within main gallery & exhibition */
 
 .gallery {
   display: inline-block;
@@ -105,7 +105,7 @@
   font-size: 0.8rem;
 }
 
-/* Individual artwork card within temporary collection */
+/* Temp collection gallery container on AllTempArtwork */
 
 .t-gallery-container {
   display: flex;
@@ -113,6 +113,8 @@
   gap: 15px;
   justify-content: center;
 }
+
+/* Individual artwork card within temporary collection */
 
 .t-gallery {
   display: inline-block;
@@ -156,10 +158,13 @@
   text-align: center;
 }
 
+/* footer */
+
 footer {
   flex-shrink: 0;
   background-color: #131313;
   padding: 2rem;
   text-align: center;
   color: #ffffff;
+  width: auto;
 }

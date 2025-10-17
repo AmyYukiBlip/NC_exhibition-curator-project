@@ -1,4 +1,3 @@
-import { React } from "react";
 import { Link } from "react-router-dom";
 import EC_Logo_transparent from "../assets/EC_Logo_transparent.png";
 
@@ -11,10 +10,9 @@ export default function Navbar() {
         </Link>
       </li>
       <li className="orgname">Exhibition Curator</li>
-
       <li>
         <Link to="/exhibition" className="nav-link">
-          Exhibition
+          Your Exhibition
         </Link>
       </li>
 

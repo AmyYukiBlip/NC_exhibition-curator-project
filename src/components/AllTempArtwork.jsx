@@ -35,8 +35,9 @@ export default function AllTempArtwork({
               setSnackOpen={setSnackOpen}
             />
           ))}
-          <Button
+          <Button 
             variant="contained"
+            sx={{width: '100%', mt: 2}}
             endIcon={<DoubleArrowIcon />}
             onClick={() => navigate("/exhibition")}
           >
