@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function ExhibitionPage({
   tempCollection,
-  setTempCollection,
   setUserTitleInput,
   setUserDescInput,
   userDescInput,
@@ -53,7 +52,7 @@ export default function ExhibitionPage({
 
   return (
     <>
-      <div className="page-container">
+      <div className="e-page-container">
         <div>
           {!formSubmitted ? (
             <Box component="form" onSubmit={handleSubmit}>
@@ -66,7 +65,7 @@ export default function ExhibitionPage({
               <TextField
                 label="Enter a exhibition title"
                 placeholder="My Exhibition"
-                variant="outlined"
+                variant="filled"
                 value={userTitleInput}
                 onChange={(e) => setUserTitleInput(e.target.value)}
                 fullWidth
@@ -76,7 +75,7 @@ export default function ExhibitionPage({
               <TextField
                 label="Enter a description for your collection"
                 placeholder="A collection of my favourite artwork..."
-                variant="outlined"
+                variant="filled"
                 value={userDescInput}
                 onChange={(e) => setUserDescInput(e.target.value)}
                 fullWidth
@@ -88,17 +87,16 @@ export default function ExhibitionPage({
                 direction="row"
                 spacing={2}
                 justifyContent="center"
-                padding={5}
+                padding={2}
               >
                 <Button
                   onClick={() => navigate("/")}
                   variant="contained"
-                  sx={{ mt: 3, mb: 3 }}
                   startIcon={<AddIcon />}
                 >
                   Add More
                 </Button>
-                <Button type="submit" variant="contained" sx={{ mt: 3, mb: 3 }}>
+                <Button type="submit" variant="contained">
                   Submit
                 </Button>
               </Stack>
@@ -170,7 +168,7 @@ export default function ExhibitionPage({
             open={successSnackOpen}
             autoHideDuration={3000}
             onClose={() => setSuccessSnackOpen(false)}
-            message={"Exhibition created successfully!"}
+            message={"🖼️ Exhibition created successfully! 🖼️"}
             anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           />
 
